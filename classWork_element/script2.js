@@ -43,4 +43,13 @@ console.log(items);
 
 let div3 = $.create('div').html('Bla bla bla').addClass('my-block');
 
+//Demonstration
+div3.attr('id','div3');
+div3.toggleClass('active');
+div3.appendTo($.search("body"), $.search('.p2'));
 console.log(div3);
+
+div3.removeClass('active');
+console.log(div3);
+
+

@@ -36,6 +36,48 @@ const Dom = function() {
         element.addEventListener(name, func);
     }
 
+/*
+=================
+Added methods
+=================
+*/
+
+    this.attr = function(element, name, value) {
+        if (!element || !name) return;
+
+        if (!value) {
+            return element.getAttribute(name);
+
+        } else {
+            element.setAttribute(name, value);
+        }
+    }
+
+    this.removeClass = function(element, className) {
+        if (!element || className.length == 0) return;
+        element.classList.remove(className);
+    }
+
+    this.toggleClass = function(element, className) {
+        if (!element || className.length == 0) return;
+        element.classList.toggle(className);
+    }
+
+    this.hasClass = function(element, className) {
+        if (!element || className.length == 0) return;
+        return element.classList.contains(className);
+    }
+
+    this.append = function(element, newElement, beforeElement) {
+         if (!element || !newElement) return;
+
+        if(!beforeElement) {
+            element.append(newElement);
+        } else {
+            element.insertBefore(newElement, beforeElement);
+        } 
+    };
+
 };
 
 const $ = new Dom();

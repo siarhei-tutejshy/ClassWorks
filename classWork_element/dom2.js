@@ -5,7 +5,10 @@ const Dom = function() {
         'addClass',
         'on',
         'search',
-        'attr'
+        'attr',
+        'removeClass',
+        'toggleClass',
+        'appendTo'
     ]
 
     this.create = function(name) {
@@ -17,7 +20,7 @@ const Dom = function() {
         dom.methods.forEach(m => {
             this.element[m] = dom[m];
         });
-
+        
         return this.element;
     }
 
@@ -75,7 +78,6 @@ Added methods
 
         if  (!value) {
             return this.getAttribute(name);
-
         } else {
             this.setAttribute(name, value);
         }
@@ -84,28 +86,23 @@ Added methods
     this.removeClass = function(className) {
         if (className.length == 0) return;
         this.classList.remove(className);
-    };
+    }
 
     this.toggleClass = function(className) {
         if (className.length == 0) return;
         this.classList.toggle(className);
-    };
+    }
 
-    this.hasClass = function(className) {
-        if (className.length == 0) return;
-        return this.classList.contains(className);
-    };
+    this.appendTo = function(toElement, beforeElement) {
+        if (!toElement) return;
 
-    // this.append = function(element, newElement, beforeElement) {
-    //      if (!element || !newElement) return;
-
-    //     if(!beforeElement) {
-    //         element.append(newElement);
-    //     } else {
-    //         element.before(newElement, beforeElement);
-    //     }
+        if(!beforeElement) {
+            toElement.append(this);
+        } else {
+            toElement.insertBefore(this, beforeElement);
+        }
         
-    // };
+    }
 };
 
 const $ = new Dom();
