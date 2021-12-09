@@ -1,0 +1,16 @@
+@media (max-width: 600px) {
+    .notes__form {
+        width: 60%;
+    }
+    .notes__item {
+        width: 60%;
+    }
+}
+@media (max-width: 451px) {
+    .notes__form {
+        width: 85%;
+    }
+    .notes__item {
+        width: 85%;
+    }
+}
